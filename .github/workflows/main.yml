@@ -13,11 +13,13 @@ jobs:
       - name: Push to GitHub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: nawedy  # Replace with your GitHub username
+          REPOSITORY: oommah-platform # Replace with your repository name
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git remote add github https://${GITHUB_TOKEN}@github.com/nawedy/OOMMAH-PLATFORM.git
+          git remote add origin https://${GITHUB_TOKEN}@github.com/nawedy/OOMMAH-PLATFORM.git
           git add .
           git commit -m "Push from V0"
-          git push github main
+          git push --force origin main # Force push to overwrite remote content
 
