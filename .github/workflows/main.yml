@@ -16,20 +16,21 @@ jobs:
           USERNAME: nawedy
           REPOSITORY: OOMMAH-PLATFORM
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
           
-          # Remove existing origin if it exists
+          //# Remove existing origin if it exists
           git remote remove origin || true
           
-          # Add new origin
-          git remote add origin "https://$USERNAME:$PAT@github.com/$USERNAME/$REPOSITORY.git"
+          //# Add new origin
+          git remote add origin "https://$TOKEN@github.com/$USERNAME/$REPOSITORY.git"
           
-          # Ensure we have all the files staged
+          //# Ensure we have all the files staged
           git add -A
           
-          # Create commit (will only create if there are changes)
+          //# Create commit (will only create if there are changes)
           git diff --quiet && git diff --staged --quiet || git commit -m "Push from V0"
           
-          # Force push to main branch
+          //# Force push to main branch
           git push --force origin main
+
