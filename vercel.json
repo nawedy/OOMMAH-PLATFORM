@@ -1,5 +1,13 @@
+
 {
-  "buildCommand": "npm run build",
-  "installCommand": "npm install --ignore-scripts && npm run postinstall",
-  "framework": "nextjs"
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "installCommand": "npm install --no-optional"
+      }
+    }
+  ]
 }
