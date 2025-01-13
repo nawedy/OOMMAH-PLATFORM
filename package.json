@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "preinstall": ":",
+    "install": "npm install --no-optional --ignore-scripts"
+ 
+}
   },
   "dependencies": {
     "@prisma/client": "^5.8.1",
